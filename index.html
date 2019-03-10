@@ -1,0 +1,115 @@
+<html>
+  <head>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/materialize.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/jquery-ui.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+    <link rel="stylesheet" href="./css/materialize.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script>
+      $(function() {
+        var socket = io();
+        socket.emit("chat message", "Fuck");
+      });
+      $(document).ready(function() {
+        $(".modal-trigger").leanModal({
+          dismissible: false
+        });
+        $("#export").click(function() {
+          var currentDate = new Date();
+          alert(
+            "Successfully :: File " +
+              Math.floor(Date.now() / 1000) +
+              ".mov exported."
+          );
+        });
+      });
+    </script>
+    <style></style>
+    <script>
+      // Wrap every letter in a span
+    </script>
+  </head>
+
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo"
+        >Create video from wikipedia article (Text2Video)</a
+      >
+    </div>
+  </nav>
+
+  <body>
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal"
+      >Do It!!</a
+    >
+    <a id="export" class="waves-effect waves-light btn" style="float: right"
+      >Export</a
+    >
+
+    <h3 id="wikiText" class="ml2" style="height:70%;"></h3>
+    <div id="modal" class="modal modal-fixed-footer">
+      <div class="modal-content">
+        <div class="container">
+          <form class="col s8 offset-s2">
+            <div class="row">
+              <label>Choose voice</label>
+              <input
+                type="text"
+                class="search"
+                id="searchFor"
+                placeholder="Search wikipedia article"
+              />
+            </div>
+            <div class="row" style="display: none;">
+              <label>Choose voice</label>
+              <select id="voices"></select>
+            </div>
+            <div class="row" style="display: none;">
+              <div class="col s6">
+                <label>Rate</label>
+                <p class="range-field">
+                  <input type="range" id="rate" min="1" max="100" value="10" />
+                </p>
+              </div>
+              <div class="col s6">
+                <label>Pitch</label>
+                <p class="range-field">
+                  <input type="range" id="pitch" min="0" max="2" value="1" />
+                </p>
+              </div>
+              <div class="col s12">
+                <p>N.B. Rate and Pitch only work with native voice.</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea id="message" class="materialize-textarea"></textarea>
+                <label>Write message</label>
+              </div>
+            </div>
+            <a href="#" id="speak" class="waves-effect waves-light btn"
+              >Speak</a
+            >
+          </form>
+        </div>
+        <div id="mainDisp"></div>
+      </div>
+      <div class="modal-footer">
+        <a
+          href="#!"
+          class="modal-action modal-close waves-effect waves-red btn-flat "
+          >Close</a
+        >
+      </div>
+    </div>
+    <footer class="page-footer site-footer">
+      <div class="footer-copyright">
+        <div class="container">© 2019 Copyright Text</div>
+      </div>
+    </footer>
+  </body>
+</html>
