@@ -42,7 +42,7 @@ io.on("connection", function(socket) {
     console.log("message: " + msg);
     txtomp3
       .saveMP3(
-        "I think you may have misunderstood what NodeJS is. Node isn't like other JavaScript or jQuery that runs in the browser. Node is code that runs on the server.",
+        "If white women are going to consume turmeric, how do I make sure brown farmers make as much money off of it as possible?",
         "FileName"
       )
       .then(function(absoluteFilePath) {
